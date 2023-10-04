@@ -21,6 +21,7 @@ namespace TTE_Portal.Controllers
         {
             return View();
         }
+        [Authorize]
         public IActionResult Orders()
         {
             List<OrdersViewModel> orders = new List<OrdersViewModel>();
@@ -36,8 +37,8 @@ namespace TTE_Portal.Controllers
             {
                 // User is not authenticated, or the claim doesn't exist.
             }
-            var awbEntries = _context.AwbEntries.Where(x => x.CreatedBy == "ef351a27-3983-408e-abda-4c61c9a3840a").ToList();
-            var piEntries = _context.PIEntries.Where(x => x.CreatedBy == "ef351a27-3983-408e-abda-4c61c9a3840a").ToList();
+            var awbEntries = _context.AwbEntries.Where(x => x.CreatedBy == _userId).ToList();
+            var piEntries = _context.PIEntries.Where(x => x.CreatedBy == _userId).ToList();
 
             for (int i = 0; i < awbEntries.Count; i++)
             {
@@ -47,14 +48,14 @@ namespace TTE_Portal.Controllers
                 order.Model = piEntries[i].ItemDesc;
                 order.QTY = piEntries?[i]?.ItemQty !=null ?  Convert.ToDouble(piEntries[i].ItemQty).ToString() : "0";
                 order.BpCode = piEntries[i].BpCode;
-                order.UserId = "ef351a27-3983-408e-abda-4c61c9a3840a";
+                order.UserId = _userId;
                 orders.Add(order);
             }
 
             return View(orders);
 
         }
-
+        [Authorize]
         public IActionResult OrderDetails(string bpCode, string userId)
         {
             var awbEntries = _context.AwbEntries.Where(x => x.CreatedBy == userId && x.BpCode == bpCode).FirstOrDefault();
