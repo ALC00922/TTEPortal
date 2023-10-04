@@ -44,6 +44,8 @@ namespace TTE_Portal.Controllers
                 OrdersViewModel order = new OrdersViewModel();
                 order.PINO = awbEntries[i].PINo;
                 order.PIDate = piEntries[i].CreatedDate.ToShortDateString();
+                order.Model = piEntries[i].ItemDesc;
+                order.QTY =Convert.ToDouble(piEntries[i].ItemQty);
                 orders.Add(order);
             }
 
