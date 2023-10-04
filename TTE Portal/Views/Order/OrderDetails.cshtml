@@ -1,4 +1,4 @@
-﻿
+﻿@model TTE_Portal.ViewModels.OrdersViewModel
 <style>
     .CustomHead {
         background: linear-gradient(#00acc1 25%,#1976d2);
@@ -16,7 +16,6 @@
 
     .uk-table td {
         vertical-align: top
-
     }
 
     .uk-table thead th {
@@ -45,9 +44,9 @@
         float: right;
     }
 
-  /*   container-fluid {
-        display: grid;
-    } */
+    /*   container-fluid {
+            display: grid;
+        } */
 
     footer {
         visibility: hidden;
@@ -66,83 +65,94 @@
 
 
     <div class="container">
-       <div class="row">
+        <div class="row">
 
-        <div class="col-md-7">
-            <h3>Order Information</h3>
+            <div class="col-md-7">
+                <h3>Order Information</h3>
 
-            <table class="uk-table">
+                <table class="uk-table">
 
-                <tbody>
-                    <tr >
-                        <td>
-                        <label>
-                            <strong>PI No.</strong>
-                        </label>
-                        <label style="float:right">1340 (b)</label>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td>
-                            <span style="margin-right:50px;"><label>
-                                <strong>Payment Mode</strong>
-                            </label></span>
-                            <label style="float:right">100% Advance</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <strong>PI Date</strong>
-                            </label>
-                            <label style="float:right">01-Aug-2023</label>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label>
+                                    <strong>PI No.</strong>
+                                </label>
+                                <label style="float:right">@Model.PINO</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    <strong>Payment Mode</strong>
+                                </label>
+                                <label style="float:right">?</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    <strong>PI Date</strong>
+                                </label>
+                                <label style="float:right">@Model.PIDate</label>
+                            </td>
+                        </tr>
 
-                </tbody>
-               
+                    </tbody>
 
-            </table>
 
-        </div>
+                </table>
 
-        <div class="col-md-5">
-            
+            </div>
 
-            <table class="uk-table">
+            <div class="col-md-5">
 
-                <tbody>
-                    <tr>
-                        <td>
-                            <label>
-                                <strong>PI No.</strong>
-                            </label>
-                            <label style="float:right">1340 (b)</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <strong>Payment Mode</strong>
-                            </label>
-                            <label style="float:right">100% Advance</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <strong>PI Date</strong>
-                            </label>
-                            <label style="float:right">01-Aug-2023</label>
-                        </td>
-                    </tr>
 
-                </tbody>
+                <table class="uk-table">
 
-            </table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label>
+                                    <strong>Payment</strong>
+                                </label>
+                                <label style="float:right">@Model.PaymentDate</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span style="margin-right:50px;">
+                                    <label>
+                                        <strong>LC</strong>
+                                    </label>
+                                </span>
+                                <label style="float:right">?</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    <strong><a href="https://localhost:7112/assets/@Model.AWBFile" target="_blank">download</a> AWB</strong>
+                                </label>
+                                <label style="float:right">@Model.AWB</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    <strong>Delivery</strong>
+                                </label>
+                                <label style="float:right">@Model.Delivery</label>
+                            </td>
+                        </tr>
+                        
 
-        </div>
-       
+                    </tbody>
+
+                </table>
+
+            </div>
+
         </div>
     </div>
 
@@ -150,94 +160,93 @@
         <div class="row">
 
             <div class="col-md-7">
-            <h3>Order</h3>
+                <h3>Order</h3>
 
-            <table class="uk-table">
+                <table class="uk-table">
 
-                <tbody>
-                    <tr class="CustomHead">
-                        <th>Model</th>
-                        <th>Qty</th>
-                        <th>Unit Price</th>
-                        <th>PI Value</th>
+                    <tbody>
+                        <tr class="CustomHead">
+                            <th>Model</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th>PI Value</th>
 
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td>Tecno - Spark 10C (128+4) </td>
-                        <td>700</td>
-                        <td>27,709</td>
-                        <td>19,396,300</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>@Model.Model</td>
+                            <td>@Model.QTY</td>
+                            <td>@Model.UnitPrice</td>
+                            <td>@Model.PIValue</td>
 
-                    </tr>
-                </tbody>
+                        </tr>
+                    </tbody>
 
-            </table>
+                </table>
 
-        </div>
+            </div>
 
             <div class="col-md-5">
-            <h3>Payment History</h3>
+                <h3>Payment History</h3>
 
-            <table class="uk-table">
+                <table class="uk-table">
 
-                <tbody>
-                    <tr class="CustomHead">
-                        <th>Date</th>
-                        <th>Amount</th>
-                        <th>RTGS No.</th>
+                    <tbody>
+                        <tr class="CustomHead">
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>RTGS No.</th>
 
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td>Tecno - Spark 10C (128+4) </td>
-                        <td>700</td>
-                        <td>27,709</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>@Model.PaymentDate </td>
+                            <td>@Model.PaymentAmount</td>
+                            <td>?</td>
 
+                        </tr>
+                    </tbody>
 
-                    </tr>
-                </tbody>
+                </table>
 
-            </table>
-
+            </div>
         </div>
-       </div>
     </div>
 
     <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Delivery Information</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Delivery Information</h3>
 
-            <table class="uk-table">
+                <table class="uk-table">
 
-                <tbody>
-                    <tr class="CustomHead">
-                        <th>DC No.</th>
-                        <th>Date</th>
-                        <th>Model</th>
-                        <th>Qty</th>
-                        <th>Color</th>
+                    <tbody>
+                        <tr class="CustomHead">
+                            <th>DC No.</th>
+                            <th>Date</th>
+                            <th>Model</th>
+                            <th>Qty</th>
+                            <th>Color</th>
 
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td>15838 </td>
-                        <td>19-Sep-2023</td>
-                        <td>Spark 10C (128+4)</td>
-                        <td>10</td>
-                        <td>Meta Black</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>@Model.DeliveryDCNo </td>
+                            <td>@Model.DeliveryDate</td>
+                            <td>@Model.DeliveryModel</td>
+                            <td>@Model.DeliveryQty</td>
+                            <td>@Model.DeliveryColor</td>
 
-                    </tr>
-                </tbody>
+                        </tr>
+                    </tbody>
 
-            </table>
+                </table>
+            </div>
+
+            <div class="col-md-6"></div>
         </div>
-
-        <div class="col-md-6"></div>
-    </div>
     </div>
 </body>
