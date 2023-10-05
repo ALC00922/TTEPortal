@@ -21,7 +21,7 @@ namespace TTE_Portal.Controllers
         {
             return View();
         }
-        [Authorize]
+        //[Authorize]
         public IActionResult Orders()
         {
             List<OrdersViewModel> orders = new List<OrdersViewModel>();
@@ -55,7 +55,7 @@ namespace TTE_Portal.Controllers
             return View(orders);
 
         }
-        [Authorize]
+        //[Authorize]
         public IActionResult OrderDetails(string bpCode, string userId)
         {
             var awbEntries = _context.AwbEntries.Where(x => x.CreatedBy == userId && x.BpCode == bpCode).FirstOrDefault();

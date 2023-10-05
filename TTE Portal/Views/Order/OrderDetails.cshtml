@@ -91,10 +91,14 @@
                         </tr>
                         <tr>
                             <td>
+                                <span style="margin-right:300px;">
                                 <label>
                                     <strong>PI Date</strong>
                                 </label>
+                                </span>
+                                @* <span style="margin-right:400px;"> *@
                                 <label style="float:right">@Model.PIDate</label>
+                                @* </span> *@
                             </td>
                         </tr>
 
@@ -113,9 +117,11 @@
                     <tbody>
                         <tr>
                             <td>
+                                <span style="margin-right:270px;">
                                 <label>
                                     <strong>Payment</strong>
                                 </label>
+                                </span>
                                 <label style="float:right">@Model.PaymentDate</label>
                             </td>
                         </tr>
@@ -132,9 +138,19 @@
                         <tr>
                             <td>
                                 <label>
-                                    <strong><a href="https://localhost:7112/assets/@Model.AWBFile" target="_blank">download</a> AWB</strong>
+                                   AWB 
+                                    
                                 </label>
-                                <label style="float:right">@Model.AWB</label>
+                                
+                                <label style="float:right">
+                                    <strong><a href="https://localhost:7112/assets/@Model.AWBFile" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                                            </svg>
+                                        </a>
+                                    </strong>
+                                    @Model.AWB</label>
                             </td>
                         </tr>
                         <tr>
@@ -156,7 +172,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="padding-top:40px;">
         <div class="row">
 
             <div class="col-md-7">
@@ -215,7 +231,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="padding-top:40px;">
         <div class="row">
             <div class="col-md-6">
                 <h3>Delivery Information</h3>
